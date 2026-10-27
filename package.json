@@ -1,28 +1,30 @@
 {
     "name": "document-portal",
     "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "lint": "eslint . --fix",
-        "format": "prettier . --write",
-        "format:check": "prettier . --check",
-        "typecheck": "tsc --noEmit",
-        "prepare": "husky"
-    },
+    "description": "White-label file delivery portal: React, NestJS, PostgreSQL",
     "private": true,
     "type": "module",
-    "workspaces": [
-        "packages/*"
-    ],
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
+    "author": "Aliaksei Badnarchuk",
+    "license": "MIT",
     "engines": {
         "node": ">=24"
     },
     "packageManager": "pnpm@12.15.0",
+    "scripts": {
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "format": "prettier --write",
+        "format:check": "prettier . --check",
+        "typecheck": "pnpm -r --if-present typecheck",
+        "prepare": "husky"
+    },
+    "lint-staged": {
+        "*.{ts,tsx,js,mjs,cjs}": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "*.{json,md,yml,yaml,css}": "prettier --write"
+    },
     "devDependencies": {
         "@commitlint/cli": "^21.2.4",
         "@commitlint/config-conventional": "^21.2.4",
@@ -30,9 +32,12 @@
         "eslint": "10.13.0",
         "eslint-config-prettier": "10.1.8",
         "eslint-plugin-react": "7.37.5",
+        "globals": "^17.13.0",
         "husky": "^9.1.7",
+        "lint-staged": "^17.6.0",
         "prettier": "3.9.10",
         "prettier-plugin-tailwindcss": "^0.8.1",
+        "typescript": "~6.0.3",
         "typescript-eslint": "8.72.0"
     }
 }

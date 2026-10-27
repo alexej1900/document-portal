@@ -4,24 +4,24 @@
 
 A restricted area of the website for document sharing.
 
-**Implemented features:**
+**Planned features:**
 
 - JWT authentication
-- User roles with different permissions (admin, user, external user/client)
+- User roles with different permissions (admin, intern, exter)
 - Uploading files of various formats and sizes to the server
 - Downloading files
 - Editing document descriptions and access rights for different users (admin)
-- Displaing of the user who uploaded the file
+- Display of the user who uploaded the file
 - Email notifications
 - Storage of metadata in the database and files on the server
 
 ## Tech stack
 
-Frontend: React
-Backend: NestJS
-DB: PostgreSQL + Prisma 7
-Documentation: Swagger / OpenAPI
-UI-kit: Storybook
+- Frontend: React
+- Backend: NestJS
+- DB: PostgreSQL + Prisma 7
+- Documentation: Swagger / OpenAPI
+- UI-kit: Storybook
 
 ## Project docs / decisions
 
