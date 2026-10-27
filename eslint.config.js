@@ -1,31 +1,18 @@
-import js from "@eslint/js";
-import globals from "globals";
-import tseslint from "typescript-eslint";
-import pluginReact from "eslint-plugin-react";
-import { defineConfig } from "eslint/config";
+import js from '@eslint/js';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
+import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
-    {
-        files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
-        plugins: { js },
-        extends: ["js/recommended"],
-        languageOptions: { globals: globals.browser },
-    },
+    globalIgnores(['**/dist', '**/build', '**/coverage', '**/storybook-static']),
+    js.configs.recommended,
     tseslint.configs.recommended,
-    pluginReact.configs.flat.recommended,
     {
+        languageOptions: { globals: { ...globals.node } },
         rules: {
-            "prettier/prettier": [
-                "error",
-                {
-                    endOfLine: "auto",
-                },
-            ],
-            "no-unused-vars": [
-                "error",
-                { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
-            ],
-            "no-undef": "warn",
+            '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
         },
     },
+    eslintConfigPrettier, // всегда последним
 ]);
