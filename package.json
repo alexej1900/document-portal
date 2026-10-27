@@ -12,6 +12,7 @@
         "prepare": "husky"
     },
     "private": true,
+    "type": "module",
     "workspaces": [
         "packages/*"
     ],
