@@ -7,7 +7,7 @@ A restricted area of the website for document sharing.
 **Planned features:**
 
 - JWT authentication
-- User roles with different permissions (admin, intern, exter)
+- User roles with different permissions (admin, intern, extern)
 - Uploading files of various formats and sizes to the server
 - Downloading files
 - Editing document descriptions and access rights for different users (admin)

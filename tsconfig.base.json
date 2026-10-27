@@ -1,5 +1,9 @@
 {
     "compilerOptions": {
-        "strict": true
+        "strict": true,
+        "noUncheckedIndexedAccess": true,
+        "isolatedModules": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
     }
 }
