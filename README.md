@@ -22,7 +22,7 @@ A restricted area of the website for document sharing.
 - DB: PostgreSQL + Prisma 7
 - Documentation: Swagger / OpenAPI
 - UI-kit: Storybook
-- Tests: Vitest, Playwrite
+- Tests: Vitest, Playwright
 
 ## Project docs / decisions
 
@@ -30,7 +30,7 @@ A restricted area of the website for document sharing.
 
 ## Quick start
 
-In order to work on this repository on your local machine, follow these steps:
+In order to work on this repository on your local machine, follow these steps !(Docker desktop should be running):
 
 1. **Run Node version according to .nvmrc file**
 
@@ -75,3 +75,8 @@ In order to work on this repository on your local machine, follow these steps:
     ```sh
     pnpm dev
     ```
+
+    Endpoints:
+    - API http://localhost:3000
+    - Front http://localhost:5173
+    - Mailpit http://localhost:8025
