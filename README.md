@@ -30,7 +30,9 @@ A restricted area of the website for document sharing.
 
 ## Quick start
 
-In order to work on this repository on your local machine, follow these steps !(Docker desktop should be running):
+!Requirements: Node 24, pnpm, Docker Desktop (should be running).
+
+In order to work on this repository on your local machine, follow these steps:
 
 1. **Run Node version according to .nvmrc file**
 
