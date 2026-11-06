@@ -17,11 +17,12 @@ A restricted area of the website for document sharing.
 
 ## Tech stack
 
-- Frontend: React
+- Frontend: React, Tailwind, Tanstack Query
 - Backend: NestJS
 - DB: PostgreSQL + Prisma 7
 - Documentation: Swagger / OpenAPI
 - UI-kit: Storybook
+- Tests: Vitest, Playwrite
 
 ## Project docs / decisions
 
@@ -37,7 +38,13 @@ In order to work on this repository on your local machine, follow these steps:
     nvm use
     ```
 
-2. **Install packages**
+2. **Install pnpm**
+
+    ```sh
+    npm i -g pnpm
+    ```
+
+3. **Install packages**
    Run
 
     ```sh
@@ -45,3 +52,26 @@ In order to work on this repository on your local machine, follow these steps:
     ```
 
     to set up project locally.
+
+4. **Create .env**
+   Run
+
+    ```sh
+    cp .env.example .env
+    ```
+
+5. **Up DB**
+
+    Run
+
+    ```sh
+    pnpm db:up
+    ```
+
+6. **Run Front and Back**
+
+    Run
+
+    ```sh
+    pnpm dev
+    ```
