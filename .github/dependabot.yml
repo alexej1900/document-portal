@@ -6,13 +6,15 @@ updates:
     - package-ecosystem: 'npm'
       # Look for `package.json` and `lock` files in the `root` directory
       directory: '/'
-      # Check the npm registry for updates every day (weekdays)
+      # Check the npm registry for updates
       schedule:
           interval: 'weekly'
       groups:
           # vitest and its plugins should be updated together, otherwise tests may break
           vitest:
               patterns: ['vitest', '@vitest/*']
+          nestjs:
+              patterns: ['@nestjs/*']
           # minor and patch updates — one PR, not ten
           minor-and-patch:
               update-types: ['minor', 'patch']
