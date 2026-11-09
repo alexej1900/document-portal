@@ -1,5 +1,7 @@
 # document-portal
 
+[![CI](https://github.com/alexej1900/document-portal/actions/workflows/ci.yml/badge.svg)](https://github.com/alexej1900/document-portal/actions/workflows/ci.yml)
+
 ## Description
 
 A restricted area of the website for document sharing.
