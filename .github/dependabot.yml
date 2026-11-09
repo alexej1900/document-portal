@@ -9,6 +9,20 @@ updates:
       # Check the npm registry for updates every day (weekdays)
       schedule:
           interval: 'weekly'
+      groups:
+          # vitest and its plugins should be updated together, otherwise tests may break
+          vitest:
+              patterns: ['vitest', '@vitest/*']
+          # minor and patch updates — one PR, not ten
+          minor-and-patch:
+              update-types: ['minor', 'patch']
+      ignore:
+          # types Node should match Node 24 from .nvmrc
+          - dependency-name: '@types/node'
+            update-types: ['version-update:semver-major']
+          # TypeScript 7 does not yet support typescript-eslint and Nest CLI
+          - dependency-name: 'typescript'
+            update-types: ['version-update:semver-major']
 
     # Enable version updates for GitHub Actions
     - package-ecosystem: 'github-actions'
