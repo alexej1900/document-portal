@@ -13,6 +13,14 @@ export default defineConfig([
     {
         rules: {
             '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+            'no-restricted-properties': [
+                'error',
+                {
+                    object: 'process',
+                    property: 'env',
+                    message: 'Use ConfigService instead of process.env',
+                },
+            ],
         },
     },
     {
