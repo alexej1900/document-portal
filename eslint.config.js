@@ -13,6 +13,12 @@ export default defineConfig([
     {
         rules: {
             '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+        },
+    },
+    {
+        files: ['apps/api/src/**/*.ts'],
+        ignores: ['apps/api/src/config/**'],
+        rules: {
             'no-restricted-properties': [
                 'error',
                 {
