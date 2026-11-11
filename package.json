@@ -20,6 +20,7 @@
         "format:check": "prettier . --check",
         "typecheck": "pnpm -r --if-present typecheck",
         "test": "pnpm -r --if-present test",
+        "test:e2e": "pnpm -r --if-present test:e2e",
         "prepare": "husky"
     },
     "lint-staged": {
