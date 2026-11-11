@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Health } from './health.types.js';
+import { Health } from './health.interface.js';
 import { CLOCK } from './health.tokens.js';
 import type { Clock } from './health.tokens.js';
 
