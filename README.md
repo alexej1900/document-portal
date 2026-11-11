@@ -50,7 +50,8 @@ In order to work on this repository on your local machine, follow these steps:
     ```
 
 3. **Install packages**
-   Run
+
+    Run
 
     ```sh
     pnpm install
@@ -59,7 +60,8 @@ In order to work on this repository on your local machine, follow these steps:
     to set up project locally.
 
 4. **Create .env**
-   Run
+
+    Run
 
     ```sh
     cp .env.example .env
