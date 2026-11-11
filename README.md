@@ -32,7 +32,8 @@ A restricted area of the website for document sharing.
 
 ## Quick start
 
-!Requirements: Node 24, pnpm, Docker Desktop (should be running).
+[!IMPORTANT]
+Requirements: Node 24, pnpm, Docker Desktop (should be running).
 
 In order to work on this repository on your local machine, follow these steps:
 
