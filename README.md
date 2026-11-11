@@ -64,6 +64,12 @@ In order to work on this repository on your local machine, follow these steps:
     cp .env.example .env
     ```
 
+    and
+
+    ```sh
+    cp apps/api/.env.example apps/api/.env
+    ```
+
 5. **Up DB**
 
     Run
