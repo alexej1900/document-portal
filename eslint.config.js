@@ -7,7 +7,7 @@ import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
-    globalIgnores(['**/dist', '**/build', '**/coverage', '**/storybook-static']),
+    globalIgnores(['**/dist', '**/build', '**/coverage', '**/storybook-static', '**/src/generated']),
     js.configs.recommended,
     tseslint.configs.recommended,
     {
