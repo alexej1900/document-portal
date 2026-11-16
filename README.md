@@ -81,6 +81,18 @@ In order to work on this repository on your local machine, follow these steps:
     pnpm db:up
     ```
 
+    Generate Prisma client
+
+    ```sh
+    pnpm generate
+    ```
+
+    Migrate Prisma schema
+
+    ```sh
+    pnpm --filter @document-portal/api db:migrate
+    ```
+
 6. **Run Front and Back**
 
     Run

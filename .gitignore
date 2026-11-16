@@ -12,3 +12,9 @@ playwright-report
 test-results
 coverage
 *.tsbuildinfo
+
+apps/api/src/generated/
+.claude/
+.windsurf/
+.agents/
+skills-lock.json

@@ -14,6 +14,7 @@
         "dev": "pnpm --parallel --filter \"./apps/*\" dev",
         "db:up": "docker compose up -d",
         "db:down": "docker compose down",
+        "generate": "pnpm -r --if-present generate",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "format": "prettier . --write",
@@ -21,7 +22,9 @@
         "typecheck": "pnpm -r --if-present typecheck",
         "test": "pnpm -r --if-present test",
         "test:e2e": "pnpm -r --if-present test:e2e",
-        "prepare": "husky"
+        "prepare": "husky",
+        "build": "pnpm -r --if-present build",
+        "check": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm test && pnpm test:e2e && pnpm build"
     },
     "lint-staged": {
         "*.{ts,tsx,js,mjs,cjs}": [
