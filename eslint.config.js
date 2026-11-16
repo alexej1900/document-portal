@@ -31,6 +31,12 @@ export default defineConfig([
         },
     },
     {
+        files: ['apps/api/**/*.ts'],
+        languageOptions: {
+            parserOptions: { emitDecoratorMetadata: true, experimentalDecorators: true },
+        },
+    },
+    {
         // API и конфиги в корне работают в Node
         files: ['apps/api/**', '*.{js,ts}'],
         languageOptions: { globals: { ...globals.node } },
