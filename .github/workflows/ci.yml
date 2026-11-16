@@ -17,6 +17,8 @@ jobs:
         name: Lint, typecheck, test
         runs-on: ubuntu-24.04
         timeout-minutes: 15
+        env:
+            DATABASE_URL: postgresql://test:test@localhost:5432/test
         steps:
             - uses: actions/checkout@v7
               with:
@@ -30,6 +32,7 @@ jobs:
                   cache: pnpm
 
             - run: pnpm install --frozen-lockfile
+            - run: pnpm generate
 
             - name: Commit messages
               if: github.event_name == 'pull_request'
