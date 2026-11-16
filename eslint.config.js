@@ -13,6 +13,7 @@ export default defineConfig([
     {
         rules: {
             '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+            '@typescript-eslint/consistent-type-imports': 'error',
         },
     },
     {
@@ -27,6 +28,12 @@ export default defineConfig([
                     message: 'Use ConfigService instead of process.env',
                 },
             ],
+        },
+    },
+    {
+        files: ['apps/api/**/*.ts'],
+        languageOptions: {
+            parserOptions: { emitDecoratorMetadata: true, experimentalDecorators: true },
         },
     },
     {

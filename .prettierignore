@@ -4,4 +4,4 @@ coverage
 .prettierignore
 pnpm-lock.yaml
 *.log
-src/generated
+**/src/generated
