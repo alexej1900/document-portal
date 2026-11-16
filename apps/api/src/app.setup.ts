@@ -1,4 +1,4 @@
-import { INestApplication } from '@nestjs/common';
+import type { INestApplication } from '@nestjs/common';
 
 export function configureApp(app: INestApplication): void {
     // Global prefix for API
