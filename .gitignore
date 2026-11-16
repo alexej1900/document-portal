@@ -13,7 +13,7 @@ test-results
 coverage
 *.tsbuildinfo
 
-src/generated
+apps/api/src/generated/
 .claude/
 .windsurf/
 .agents/
