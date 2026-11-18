@@ -14,8 +14,8 @@ async function main() {
         return;
     }
 
-    const INTERN_FOLDER_ID = '123e4567-e89b-12d3-a456-426614174000';
-    const EXTERN_FOLDER_ID = '123e4567-e89b-12d3-a456-426614174001';
+    const INTERN_FOLDER_ID = '00000000-0000-7000-8000-000000000000';
+    const EXTERN_FOLDER_ID = '00000000-0000-7000-8000-000000000001';
 
     await prisma.$transaction(async (tx) => {
         const internFolder = await tx.folder.upsert({
@@ -40,33 +40,46 @@ async function main() {
             },
         });
 
-        const users = [
-            { email: 'admin@example.com', role: 'ADMIN' },
-            { email: 'intern@example.com', role: 'INTERN' },
-            { email: 'extern@example.com', role: 'EXTERN' },
-        ] as const;
-
-        const passwordHash = null;
-
-        const [, , extern] = await Promise.all(
-            users.map(({ email, role }) =>
-                tx.user.upsert({
-                    where: { email },
-                    update: {},
-                    create: { email, role, passwordHash },
-                })
-            )
-        );
-
-        await tx.folderAccess.upsert({
+        const admin = await tx.user.upsert({
             where: {
-                userId_folderId: { userId: extern!.id, folderId: externFolder.id },
+                email: 'admin@example.com',
             },
-            update: { mode: 'READ_ONLY' },
-            create: { userId: extern!.id, folderId: externFolder.id, mode: 'READ_ONLY' },
+            update: {},
+            create: {
+                email: 'admin@example.com',
+                role: 'ADMIN',
+            },
         });
 
-        console.log({ internFolder, externFolder, users: [...users] });
+        const intern = await tx.user.upsert({
+            where: {
+                email: 'intern@example.com',
+            },
+            update: {},
+            create: {
+                email: 'intern@example.com',
+                role: 'INTERN',
+            },
+        });
+
+        const extern = await tx.user.upsert({
+            where: {
+                email: 'extern@example.com',
+            },
+            update: {},
+            create: {
+                email: 'extern@example.com',
+                role: 'EXTERN',
+            },
+        });
+
+        await tx.folderAccess.upsert({
+            where: { userId_folderId: { userId: extern.id, folderId: externFolder.id } },
+            update: { mode: 'READ_ONLY' },
+            create: { userId: extern.id, folderId: externFolder.id, mode: 'READ_ONLY' },
+        });
+
+        console.log({ internFolder, externFolder, admin, intern, extern });
         console.log('Seed completed');
     });
 }
