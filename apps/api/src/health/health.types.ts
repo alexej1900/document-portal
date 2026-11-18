@@ -3,3 +3,8 @@ export type Health = {
     uptime: number;
     timestamp: string;
 };
+
+export type Readiness = {
+    status: 'ok' | 'error';
+    database: 'up' | 'down';
+};
