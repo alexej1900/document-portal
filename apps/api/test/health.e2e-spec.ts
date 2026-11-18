@@ -19,7 +19,7 @@ describe('Health (e2e)', () => {
             imports: [AppModule],
         })
             .overrideProvider(PrismaService)
-            .useValue({ $queryRaw: vi.fn().mockResolvedValue([]) })
+            .useValue(prisma)
             .compile();
 
         app = moduleFixture.createNestApplication({ logger: false });
