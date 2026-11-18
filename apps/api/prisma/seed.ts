@@ -17,7 +17,7 @@ async function main() {
     const INTERN_FOLDER_ID = '00000000-0000-7000-8000-000000000000';
     const EXTERN_FOLDER_ID = '00000000-0000-7000-8000-000000000001';
 
-    await prisma.$transaction(async (tx) => {
+    const seedData = await prisma.$transaction(async (tx) => {
         const internFolder = await tx.folder.upsert({
             where: { id: INTERN_FOLDER_ID },
             update: {},
@@ -79,9 +79,10 @@ async function main() {
             create: { userId: extern.id, folderId: externFolder.id, mode: 'READ_ONLY' },
         });
 
-        console.log({ internFolder, externFolder, admin, intern, extern });
-        console.log('Seed completed');
+        return { internFolder, externFolder, admin, intern, extern };
     });
+    console.log(seedData);
+    console.log('Seed completed');
 }
 
 main()

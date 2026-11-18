@@ -5,6 +5,6 @@ export type Health = {
 };
 
 export type Readiness = {
-    status: 'ok' | 'error';
-    database: 'up' | 'down';
+    status: 'ok';
+    database: 'up';
 };
