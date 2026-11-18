@@ -93,6 +93,12 @@ In order to work on this repository on your local machine, follow these steps:
     pnpm --filter @document-portal/api db:migrate
     ```
 
+    Seed DB with test data
+
+    ```sh
+    pnpm --filter @document-portal/api db:seed
+    ```
+
 6. **Run Front and Back**
 
     Run
