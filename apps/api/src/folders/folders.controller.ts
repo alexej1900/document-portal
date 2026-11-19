@@ -14,7 +14,7 @@ export class FoldersController {
     }
 
     @Get(':id')
-    getFolderById(@Param('id', new ParseUUIDPipe({ version: '7' })) id: string): Promise<Folder | null> {
+    getFolderById(@Param('id', new ParseUUIDPipe({ version: '7' })) id: string): Promise<Folder> {
         return this.foldersService.findOne(id);
     }
 

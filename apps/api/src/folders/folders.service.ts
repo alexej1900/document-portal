@@ -1,4 +1,4 @@
-import { Injectable, Logger, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service.js';
 import { Folder } from '../generated/prisma/client.js';
 import { UpdateFolderDto } from './dto/update-folder.dto.js';
@@ -7,8 +7,6 @@ import { CreateFolderDto } from './dto/create-folder.dto.js';
 @Injectable()
 export class FoldersService {
     constructor(private readonly prisma: PrismaService) {}
-
-    private readonly logger = new Logger(FoldersService.name);
 
     async findAll(): Promise<Folder[]> {
         return this.prisma.folder.findMany({ orderBy: { createdAt: 'desc' } });

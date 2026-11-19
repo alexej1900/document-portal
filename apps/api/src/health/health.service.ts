@@ -22,7 +22,7 @@ export class HealthService {
             await this.prisma.$queryRaw`SELECT 1`;
         } catch (error) {
             this.logger.error('Database readiness check failed', error);
-            throw new ServiceUnavailableException({ status: 'error', database: 'down' });
+            throw new ServiceUnavailableException('Database is not available');
         }
 
         return { status: 'ok', database: 'up' };
