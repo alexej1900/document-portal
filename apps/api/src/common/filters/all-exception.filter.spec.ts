@@ -49,7 +49,7 @@ describe('AllExceptionsFilter', () => {
 
         expect(response.status).toHaveBeenCalledWith(400);
         expect(sentBody()).toMatchObject({
-            error: 'Bad request',
+            error: 'Bad Request',
             message: ['name should not be empty'],
         });
     });
