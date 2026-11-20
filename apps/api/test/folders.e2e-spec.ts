@@ -6,7 +6,7 @@ import { PrismaService } from '../src/prisma/prisma.service.js';
 import { configureApp } from '../src/app.setup.js';
 import request from 'supertest';
 
-const FOLDER_ID = '00000000-0000-0000-0000-000000000001';
+const FOLDER_ID = '00000000-0000-7000-8000-000000000001';
 
 const folder = {
     id: FOLDER_ID,
@@ -64,7 +64,7 @@ describe('Folders (e2e)', () => {
                 .expect(201);
             expect(response.body).toMatchObject({
                 id: FOLDER_ID,
-                name: 'Contract',
+                name: 'Contracts',
                 type: 'EXTERN',
             });
         });
@@ -111,15 +111,16 @@ describe('Folders (e2e)', () => {
         it('returns 404 if folder does not exist', async () => {
             prisma.folder.findUnique.mockResolvedValue(null);
             await request(app.getHttpServer())
-                .patch('/api/folders/${FOLDER_ID}')
+                .patch(`/api/folders/${FOLDER_ID}`)
                 .send({ name: 'Updated folder' })
-                .expect(400);
+                .expect(404);
 
             expect(prisma.folder.update).not.toHaveBeenCalled();
         });
 
         it('returns 200 when folder was updated', async () => {
             prisma.folder.findUnique.mockResolvedValue(folder);
+            prisma.folder.update.mockResolvedValue({ ...folder, name: 'Updated folder' });
 
             const response = await request(app.getHttpServer())
                 .patch(`/api/folders/${FOLDER_ID}`)
@@ -128,7 +129,7 @@ describe('Folders (e2e)', () => {
 
             expect(response.body).toMatchObject({
                 id: FOLDER_ID,
-                name: 'Contract',
+                name: 'Updated folder',
                 type: 'EXTERN',
             });
         });
@@ -137,7 +138,7 @@ describe('Folders (e2e)', () => {
     describe('DELETE /api/folders/:id', () => {
         it('returns 204 if folder was deleted', async () => {
             prisma.folder.findUnique.mockResolvedValue(folder);
-            await request(app.getHttpServer()).patch('/api/folders/${FOLDER_ID}').expect(204);
+            await request(app.getHttpServer()).delete(`/api/folders/${FOLDER_ID}`).expect(204);
 
             expect(prisma.folder.delete).toHaveBeenCalled();
         });

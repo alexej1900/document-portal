@@ -37,8 +37,8 @@ describe('AllExceptionsFilter', () => {
 
         expect(response.status).toHaveBeenCalledWith(404);
         expect(sentBody()).toMatchObject({
-            ststusCode: 404,
-            error: 'Not found',
+            statusCode: 404,
+            error: 'Not Found',
             message: 'Folder not found',
             path: '/api/folders',
         });
