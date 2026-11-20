@@ -36,6 +36,7 @@ describe('HealthService', () => {
             prisma.$queryRaw.mockRejectedValue(new Error('connection refused'));
 
             await expect(service.checkReadiness()).rejects.toThrow(ServiceUnavailableException);
+            await expect(service.checkReadiness()).rejects.toThrow('Database is not available');
         });
     });
 

@@ -52,7 +52,12 @@ describe('Health (e2e)', () => {
 
         const response = await request(app.getHttpServer()).get('/api/health/ready').expect(503);
 
-        expect(response.body).toEqual({ status: 'error', database: 'down' });
+        expect(response.body).toMatchObject({
+            statusCode: 503,
+            error: 'Service Unavailable',
+            message: 'Database is not available',
+        });
+        expect(JSON.stringify(response.body)).not.toContain('5432');
     });
 
     afterEach(async () => {
