@@ -4,7 +4,7 @@ import { PrismaService } from '../prisma/prisma.service.js';
 import { FoldersService } from './folders.service.js';
 import { NotFoundException } from '@nestjs/common/exceptions/index.js';
 
-const FOLDER_ID = '00000000-0000-0000-0000-000000000001';
+const FOLDER_ID = '00000000-0000-7000-8000-000000000001';
 
 const folder = {
     id: FOLDER_ID,
