@@ -1,5 +1,5 @@
 import { ValidationPipe, type INestApplication } from '@nestjs/common';
-import { AllExceptionsFilter } from './common/filters/all-exception.filter.js';
+import { AllExceptionsFilter } from './common/filters/all-exceptions.filter.js';
 
 export function configureApp(app: INestApplication): void {
     // Global prefix for API

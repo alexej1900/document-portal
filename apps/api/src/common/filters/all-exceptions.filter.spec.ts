@@ -1,6 +1,6 @@
 import type { ArgumentsHost } from '@nestjs/common';
 import { BadRequestException, Logger, NotFoundException } from '@nestjs/common';
-import { AllExceptionsFilter } from './all-exception.filter.js';
+import { AllExceptionsFilter } from './all-exceptions.filter.js';
 import { Prisma } from '../../generated/prisma/client.js';
 
 describe('AllExceptionsFilter', () => {
