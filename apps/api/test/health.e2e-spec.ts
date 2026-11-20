@@ -57,6 +57,7 @@ describe('Health (e2e)', () => {
             error: 'Service Unavailable',
             message: 'Database is not available',
         });
+        expect(JSON.stringify(response.body)).not.toContain('5432');
     });
 
     afterEach(async () => {

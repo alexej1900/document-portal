@@ -1,5 +1,5 @@
 import { ValidationPipe, type INestApplication } from '@nestjs/common';
-import { HttpExceptionFilter } from './common/filters/http-exception.filter.js';
+import { AllExceptionsFilter } from './common/filters/all-exception.filter.js';
 
 export function configureApp(app: INestApplication): void {
     // Global prefix for API
@@ -12,7 +12,7 @@ export function configureApp(app: INestApplication): void {
             transform: true,
         })
     );
-    app.useGlobalFilters(new HttpExceptionFilter());
+    app.useGlobalFilters(new AllExceptionsFilter());
 
     // Starts listening for shutdown hooks
     app.enableShutdownHooks();
