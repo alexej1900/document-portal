@@ -26,7 +26,7 @@ describe('CreateFolderDto', () => {
         ['type is unknown', { type: 'PUBLIC' }, 'type'],
         ['description is too long', { description: 'a'.repeat(1001) }, 'description'],
     ])('rejects the folder when %s', async (_case, override, field) => {
-        expect(await invalidFields({ ...validInput, ...override })).toContain([field]);
+        expect(await invalidFields({ ...validInput, ...override })).toContain(field);
     });
 
     it('rejects the folder when required fields are missing', async () => {

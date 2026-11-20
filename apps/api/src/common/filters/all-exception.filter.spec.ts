@@ -37,7 +37,7 @@ describe('AllExceptionsFilter', () => {
 
         expect(response.status).toHaveBeenCalledWith(404);
         expect(sentBody()).toMatchObject({
-            ststuaCode: 404,
+            ststusCode: 404,
             error: 'Not found',
             message: 'Folder not found',
             path: '/api/folders',
@@ -45,7 +45,7 @@ describe('AllExceptionsFilter', () => {
     });
 
     it('passes validation messages as an array', () => {
-        filter.catch(new BadRequestException(['name should not be ampty']), host);
+        filter.catch(new BadRequestException(['name should not be empty']), host);
 
         expect(response.status).toHaveBeenCalledWith(400);
         expect(sentBody()).toMatchObject({
